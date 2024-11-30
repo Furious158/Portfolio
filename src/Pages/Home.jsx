@@ -40,36 +40,37 @@ function App() {
 
         {/* Mobile Menu */}
         {menuOpen && (
-          <nav className="lg:hidden bg-black bg-opacity-90 text-white p-4 space-y-4">
-            <Link
-              to="/"
-              className="block text-xl hover:text-blue-300"
-              onClick={() => setMenuOpen(false)}
-            >
-              Home
-            </Link>
-            <Link
-              to="/Contact"
-              className="block text-xl hover:text-blue-300"
-              onClick={() => setMenuOpen(false)}
-            >
-              Contact
-            </Link>
-            <Link
-              to="/About"
-              className="block text-xl hover:text-blue-300"
-              onClick={() => setMenuOpen(false)}
-            >
-              About
-            </Link>
-          </nav>
-        )}
+  <nav className="lg:hidden fixed inset-0 bg-black bg-opacity-90 text-white flex flex-col items-center justify-center space-y-6">
+    <Link
+      to="/"
+      className="text-xl hover:text-blue-300"
+      onClick={() => setMenuOpen(false)}
+    >
+      Home
+    </Link>
+    <Link
+      to="/Contact"
+      className="text-xl hover:text-blue-300"
+      onClick={() => setMenuOpen(false)}
+    >
+      Contact
+    </Link>
+    <Link
+      to="/About"
+      className="text-xl hover:text-blue-300"
+      onClick={() => setMenuOpen(false)}
+    >
+      About
+    </Link>
+  </nav>
+)}
+
       </header>
 
       {/* Hero Section */}
       <div className="relative h-screen">
-        <video
-          className="absolute inset-0 w-full h-full object-cover animate-fadeIn"
+        <video 
+          className="absolute inset-0 w-full h-full object-cover animate-fadeIn pointer-events-none"
           src="/Background2.mp4"
           autoPlay
           loop
@@ -92,7 +93,7 @@ function App() {
       </div>
 
       {/* Projects Section */}
-      <div className="relative h-screen bg-[url('/yup.jpg')] bg-cover bg-center text-white">
+      <div className="relative h-screen bg-[url('/5594016.jpg')] bg-cover bg-center text-white">
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
         <div className="flex flex-col items-center justify-center h-full">
           <h2 className="text-4xl font-bold mb-8">My Work</h2>
