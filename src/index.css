@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-code-pattern {
+  background-image: url('/code-pattern.svg');
+  background-size: cover;
+  background-repeat: repeat;
+}
