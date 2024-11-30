@@ -1,8 +1,10 @@
-const express = require("express");
-const nodemailer = require("nodemailer");
-const cors = require("cors");
-const bodyParser = require("body-parser");
-require("dotenv").config();
+import express from "express";
+import nodemailer from "nodemailer";
+import cors from "cors";
+import bodyParser from "body-parser";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
 
@@ -10,7 +12,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// Route pour envoyer un email
+// Route pour envoyer des emails
 app.post("/send-email", async (req, res) => {
   const { name, email, message } = req.body;
 
@@ -20,16 +22,16 @@ app.post("/send-email", async (req, res) => {
 
   try {
     const transporter = nodemailer.createTransport({
-      service: "gmail", // Ou un autre service SMTP
+      service: "gmail",
       auth: {
-        user: process.env.EMAIL, // Défini dans le fichier .env
-        pass: process.env.PASSWORD, // Mot de passe ou mot de passe d'application
+        user: process.env.EMAIL,
+        pass: process.env.PASSWORD,
       },
     });
 
     const mailOptions = {
       from: email,
-      to: process.env.EMAIL, // Ton adresse pour recevoir les messages
+      to: process.env.EMAIL,
       subject: `Message de ${name}`,
       text: message,
     };
@@ -42,8 +44,7 @@ app.post("/send-email", async (req, res) => {
   }
 });
 
-// Démarrage du serveur
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`Serveur démarré sur le port ${PORT}`);
+  console.log(`Serveur backend démarré sur le port ${PORT}`);
 });
