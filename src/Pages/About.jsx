@@ -1,68 +1,131 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import Divider from '@mui/material/Divider';
+import Divider from "@mui/material/Divider";
+import DownloadIcon from "@mui/icons-material/Download";
 
 function About() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
     <div className="relative min-h-screen bg-[url('/5594016.jpg')] bg-cover bg-center text-white">
-      <div>
-        <nav>
-          <div className="fixed top-0 left-0 w-full bg-sky-600 text-white p-4 flex justify-between items-center">
-            <div className="text-4xl font-sherif">
-              Mamoune Benouna
-            </div>
+      {/* Navigation */}
+      <nav>
+  <div className="fixed top-0 left-0 w-full bg-sky-600 text-white p-4 flex justify-between items-center shadow-md z-50">
+    <div className="text-3xl lg:text-4xl font-sherif whitespace-nowrap">
+      Mamoune Benouna
+    </div>
+    {/* Burger Menu Button */}
+    <button
+      className="text-3xl focus:outline-none lg:hidden"
+      onClick={toggleMenu}
+      aria-label="Toggle navigation menu"
+    >
+      ☰
+    </button>
+    {/* Desktop Navigation */}
+    <ul className="hidden lg:flex space-x-6 text-lg lg:text-2xl">
+      <li className="hover:text-blue-400">
+        <Link to="/">Home</Link>
+      </li>
+      <li className="hover:text-blue-400">
+        <Link to="/Contact">Contact</Link>
+      </li>
+      <li className="hover:text-blue-400">
+        <Link to="/About">About</Link>
+      </li>
+    </ul>
+  </div>
 
-            <ul className="flex space-x-8 text-2xl">
-              <li className="hover:text-blue-400 mr-4">
-                <Link to="/">Home</Link>
-              </li>
-              <li className="hover:text-blue-400 mr-4">
-                <Link to="/Contact">Contact</Link>
-              </li>
-              <li className="hover:text-blue-400 mr-4">
-                <Link to="/About">About</Link>
-              </li>
-            </ul>
-          </div>
-        </nav>
+  {/* Mobile Menu */}
+  {menuOpen && (
+    <nav
+      className="lg:hidden fixed inset-0 bg-black bg-opacity-90 text-white flex flex-col items-center justify-center space-y-6 z-50"
+      style={{ zIndex: 50 }}
+    >
+      <Link
+        to="/"
+        className="text-xl hover:text-blue-300"
+        onClick={toggleMenu}
+      >
+        Home
+      </Link>
+      <Link
+        to="/Contact"
+        className="text-xl hover:text-blue-300"
+        onClick={toggleMenu}
+      >
+        Contact
+      </Link>
+      <Link
+        to="/About"
+        className="text-xl hover:text-blue-300"
+        onClick={toggleMenu}
+      >
+        About
+      </Link>
+    </nav>
+  )}
+</nav>
 
-        {/* Section principale */}
-        <div className="py-20">
-          <h1 className="text-5xl font-sherif text-center text-white mb-8 py-8">About</h1>
-        </div>
 
-        {/* Container contenant le texte et l'image */}
-        <div className="flex flex-col md:flex-row justify-center items-start px-8 py-20 space-y-8 md:space-y-0 md:space-x-8">
-          {/* Texte à gauche */}
-          <div className="max-w-2xl text-lg leading-relaxed text-white">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla temporibus dicta at in molestias nobis soluta quaerat dolorum. Ipsum asperiores modi debitis tempora suscipit ullam pariatur ex temporibus, illum quidem?
-            </p>
-            <p className="mt-4">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt quisquam optio hic. Molestiae numquam fugiat ducimus commodi, asperiores eligendi consequatur quae quaerat et ut repudiandae possimus laboriosam maxime non. Minima.
-            </p>
-          </div>
-
-          {/* Image du CV à droite */}
-          <div className="flex flex-col items-center">
-            <div className="w-64 h-64 bg-white p-4 rounded-lg shadow-lg flex items-center justify-center">
-              <img src="image411.png" alt="cv" className="max-w-full max-h-full" />
-            </div>
-            {/* Bouton Télécharger */}
-            <a
-              href="/cv.mamoune.pdf"
-              download="Cv Mamoune"
-              className="mt-6 bg-green-500 text-white font-bold py-2 px-6 rounded-lg shadow-lg hover:bg-green-600 transition duration-300"
-            >
-              Télécharger
-            </a>
-          </div>
-        </div>
-
-        <Divider className="bg-white my-8">heheboy</Divider>
+      {/* Main Section */}
+      <div className="flex flex-col items-center justify-center py-24 px-8">
+        <h1 className="text-4xl lg:text-5xl font-bold mb-12 text-center">
+          About Me
+        </h1>
       </div>
 
-      <footer className="text-white p-4 text-center mt-auto">
-        <p className="text-lg">&copy; 2024 Mamoune Benouna. Tous droits réservés.</p>
+      {/* Content Section */}
+      <div className="container mx-auto flex flex-col md:flex-row justify-between items-start px-6 lg:px-12 py-16 space-y-8 md:space-y-0 md:space-x-12">
+        {/* Text Section */}
+        <div className="max-w-2xl text-base lg:text-lg leading-relaxed text-white">
+          <p>
+            Hello! I am Mamoune Benouna, a passionate Full Stack Developer and
+            student in computer science. I am dedicated to creating elegant,
+            responsive, and efficient web applications that deliver great user
+            experiences.
+          </p>
+          <p className="mt-6">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem magni veniam rerum voluptatum illum distinctio, voluptatibus debitis ullam id culpa itaque quae! Fuga error quis ullam maxime laudantium non iure.
+          </p>
+        </div>
+
+        {/* Image + CV Download */}
+        <div className="flex flex-col items-center w-full md:w-1/3">
+          {/* Image */}
+          <div className="w-64 h-64 bg-white p-4 rounded-lg shadow-lg flex items-center justify-center">
+            <img
+              src="image411.png"
+              alt="CV"
+              className="max-w-full max-h-full rounded-lg"
+            />
+          </div>
+          {/* Download Button */}
+          <a
+            href="/cv.mamoune.pdf"
+            download="Cv_Mamoune"
+            className="mt-6 flex items-center justify-center bg-green-500 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-green-600 transition duration-300"
+          >
+            <DownloadIcon className="mr-2" />
+            Télécharger CV
+          </a>
+        </div>
+      </div>
+
+      {/* Divider */}
+      <div className="flex justify-center py-8">
+        <Divider className="bg-white w-3/4">~ Discover ~</Divider>
+      </div>
+
+      {/* Footer */}
+      <footer className="text-white text-center py-4 bg-sky-600">
+        <p className="text-sm lg:text-lg">
+          &copy; 2024 Mamoune Benouna. Tous droits réservés.
+        </p>
       </footer>
     </div>
   );

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import HomeRepairServiceIcon from "@mui/icons-material/HomeRepairService";
 import SmartphoneIcon from "@mui/icons-material/Smartphone";
@@ -7,13 +8,28 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import InstagramIcon from "@mui/icons-material/Instagram";
 
 function Contact() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
-    <div className="relative min-h-screen bg-[url('/5594016.jpg')] bg-cover bg-center">
+    <div className="relative min-h-screen bg-[url('/5594016.jpg')] bg-cover bg-center text-white">
       {/* Navigation */}
       <nav>
         <div className="fixed top-0 left-0 w-full bg-sky-600 text-white p-4 flex justify-between items-center shadow-md z-50">
-          <div className="text-4xl font-sherif">Mamoune Benouna</div>
-          <ul className="flex space-x-8 text-lg">
+          <div className="text-3xl lg:text-4xl font-sherif">Mamoune Benouna</div>
+          {/* Burger Menu Button */}
+          <button
+            className="text-3xl focus:outline-none lg:hidden"
+            onClick={toggleMenu}
+            aria-label="Toggle navigation menu"
+          >
+            ☰
+          </button>
+          {/* Desktop Navigation */}
+          <ul className="hidden lg:flex space-x-6 text-lg lg:text-2xl">
             <li className="hover:text-blue-400">
               <Link to="/">Home</Link>
             </li>
@@ -25,6 +41,35 @@ function Contact() {
             </li>
           </ul>
         </div>
+        {/* Mobile Menu */}
+        {menuOpen && (
+          <nav
+            className="lg:hidden fixed inset-0 bg-black bg-opacity-90 text-white flex flex-col items-center justify-center space-y-6 z-40"
+            style={{ zIndex: 50 }}
+          >
+            <Link
+              to="/"
+              className="text-xl hover:text-blue-300"
+              onClick={toggleMenu}
+            >
+              Home
+            </Link>
+            <Link
+              to="/Contact"
+              className="text-xl hover:text-blue-300"
+              onClick={toggleMenu}
+            >
+              Contact
+            </Link>
+            <Link
+              to="/About"
+              className="text-xl hover:text-blue-300"
+              onClick={toggleMenu}
+            >
+              About
+            </Link>
+          </nav>
+        )}
       </nav>
 
       {/* Contact Section */}
@@ -151,41 +196,4 @@ function Contact() {
   );
 }
 
-
-
-
-const sendEmail = async (e) => {
-  e.preventDefault();
-
-  const formData = new FormData(e.target);
-
-  const data = {
-    name: formData.get("name"),
-    email: formData.get("email"),
-    message: formData.get("message"),
-  };
-
-  try {
-    const response = await fetch("https://portfolioo-2.onrender.com/send-mail", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-
-    const result = await response.json();
-
-    if (result.success) {
-      alert("Message envoyé avec succès !");
-      e.target.reset(); // Réinitialise le formulaire
-    } else {
-      alert("Erreur : " + result.message);
-    }
-  } catch (error) {
-    alert("Erreur lors de l'envoi : " + error.message);
-  }
-};
-
 export default Contact;
-
