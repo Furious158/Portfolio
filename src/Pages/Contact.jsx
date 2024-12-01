@@ -1,63 +1,64 @@
 import { Link } from "react-router-dom";
-import HomeRepairServiceIcon from '@mui/icons-material/HomeRepairService';
-import SmartphoneIcon from '@mui/icons-material/Smartphone';
-import EmailIcon from '@mui/icons-material/Email';
+import HomeRepairServiceIcon from "@mui/icons-material/HomeRepairService";
+import SmartphoneIcon from "@mui/icons-material/Smartphone";
+import EmailIcon from "@mui/icons-material/Email";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import InstagramIcon from "@mui/icons-material/Instagram";
 
 function Contact() {
   return (
-    <div className="relative min-h-screen bg-[url('/5594016.jpg')] bg-cover bg-center text-white">
-      <div>
-        <nav>
-          <div className="fixed top-0 left-0 w-full bg-sky-600 text-white p-4 flex justify-between items-center">
-            {/* Mamoune Benouna aligné à gauche */}
-            <div className="text-4xl font-sherif">Mamoune Benouna</div>
+    <div className="relative min-h-screen bg-[url('/5594016.jpg')] bg-cover bg-center">
+      {/* Navigation */}
+      <nav>
+        <div className="fixed top-0 left-0 w-full bg-sky-600 text-white p-4 flex justify-between items-center shadow-md z-50">
+          <div className="text-4xl font-sherif">Mamoune Benouna</div>
+          <ul className="flex space-x-8 text-lg">
+            <li className="hover:text-blue-400">
+              <Link to="/">Home</Link>
+            </li>
+            <li className="hover:text-blue-400">
+              <Link to="/Contact">Contact</Link>
+            </li>
+            <li className="hover:text-blue-400">
+              <Link to="/About">About</Link>
+            </li>
+          </ul>
+        </div>
+      </nav>
 
-            {/* Liens alignés à droite */}
-            <ul className="flex space-x-8 text-2xl">
-              <li className="hover:text-blue-400 mr-4">
-                <Link to="/">Home</Link>
-              </li>
-              <li className="hover:text-blue-400 mr-4">
-                <Link to="/Contact">Contact</Link>
-              </li>
-              <li className="hover:text-blue-400 mr-4">
-                <Link to="/About">About</Link>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </div>
+      {/* Contact Section */}
+      <div className="flex flex-col items-center justify-center py-24 px-8 text-white">
+        <h1 className="text-5xl font-bold mb-12 text-center">Contact</h1>
 
-      {/* Section de contact principale */}
-      <div className="flex-grow flex flex-col items-center justify-center py-20 px-8">
-        <h1 className="text-5xl font-sherif text-center text-white mb-8 py-8">Contact</h1>
-
-        <div className="flex flex-wrap justify-between items-center py-20 px-8 gap-8">
-          <div className="w-64 h-64 bg-white p-8 rounded-lg shadow-lg text-center ">
-            <HomeRepairServiceIcon style={{ fontSize: 40 }} />
-            <div>
-              Rennes, France
-              <br />
-              Ynov Campus
-            </div>
+        {/* Contact Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          {/* Location */}
+          <div className="bg-white p-8 rounded-lg shadow-lg text-center text-black">
+            <HomeRepairServiceIcon style={{ fontSize: 40, color: "#4A5568" }} />
+            <p className="mt-4 font-semibold">Rennes, France</p>
+            <p>Ynov Campus</p>
           </div>
-          <div className="w-64 h-64 bg-white p-8 rounded-lg shadow-lg text-center ">
-            <EmailIcon style={{ fontSize: 40 }} />
-            ghaliben14@gmail.com
+          {/* Email */}
+          <div className="bg-white p-8 rounded-lg shadow-lg text-center text-black">
+            <EmailIcon style={{ fontSize: 40, color: "#4A5568" }} />
+            <p className="mt-4 font-semibold">ghaliben14@gmail.com</p>
           </div>
-          <div className="w-64 h-64 bg-white p-8 rounded-lg shadow-lg text-center ">
-            <SmartphoneIcon style={{ fontSize: 40 }} />
-            <div>
-              +33640820290
-            </div>
+          {/* Phone */}
+          <div className="bg-white p-8 rounded-lg shadow-lg text-center text-black">
+            <SmartphoneIcon style={{ fontSize: 40, color: "#4A5568" }} />
+            <p className="mt-4 font-semibold">+33 6 40 82 02 90</p>
           </div>
         </div>
 
-        {/* Formulaire de contact */}
-        <div className="bg-white p-8 shadow-lg rounded-lg max-w-lg w-full">
+        {/* Contact Form */}
+        <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-3xl text-black">
           <form className="space-y-6">
+            {/* Name */}
             <div>
-              <label className="block text-xl mb-2 font-semibold" htmlFor="name">Name</label>
+              <label className="block text-lg font-semibold mb-2" htmlFor="name">
+                Name
+              </label>
               <input
                 type="text"
                 id="name"
@@ -66,9 +67,11 @@ function Contact() {
                 required
               />
             </div>
-
+            {/* Email */}
             <div>
-              <label className="block text-xl mb-2 font-semibold" htmlFor="email">Email</label>
+              <label className="block text-lg font-semibold mb-2" htmlFor="email">
+                Email
+              </label>
               <input
                 type="email"
                 id="email"
@@ -77,9 +80,14 @@ function Contact() {
                 required
               />
             </div>
-
+            {/* Message */}
             <div>
-              <label className="block text-xl mb-2 font-semibold" htmlFor="message">Message</label>
+              <label
+                className="block text-lg font-semibold mb-2"
+                htmlFor="message"
+              >
+                Message
+              </label>
               <textarea
                 id="message"
                 className="w-full p-3 border border-gray-300 rounded"
@@ -88,11 +96,11 @@ function Contact() {
                 required
               ></textarea>
             </div>
-
+            {/* Submit Button */}
             <div className="text-center">
               <button
                 type="submit"
-                className="bg-gradient-to-r from-blue-500 to-sky-600 text-white py-3 px-6 rounded-full shadow-md transform transition duration-300 hover:scale-105 hover:from-sky-600 hover:to-blue-500"
+                className="bg-gradient-to-r from-blue-500 to-sky-600 text-white py-3 px-6 rounded-full shadow-md transition-transform transform hover:scale-105"
               >
                 Send Message
               </button>
@@ -100,36 +108,52 @@ function Contact() {
           </form>
         </div>
 
-        {/* Informations de contact */}
-        <div className="mt-12 text-white text-center">
-          <p className="text-xl">You can also reach me at:</p>
-          <p className="mt-4">
-            <strong>Email:</strong> mamoune.benouna@example.com
-          </p>
-          <p className="mt-2">
-            <strong>Phone:</strong> +33 6 40 82 02 90
-          </p>
-          <div className="mt-4 flex justify-center space-x-4">
-            <a href="https://www.linkedin.com/in/mamoune-benouna-878717270" target="_blank" className="hover:text-blue-400">
-              LinkedIn
+        {/* Social Links */}
+        <div className="mt-16 text-center">
+          <p className="text-xl mb-4">You can also find me on:</p>
+          <div className="flex justify-center space-x-6">
+            <a
+              href="https://www.linkedin.com/in/mamoune-benouna-878717270"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-blue-400 flex flex-col items-center"
+            >
+              <LinkedInIcon style={{ fontSize: 40 }} />
+              <span className="mt-2">LinkedIn</span>
             </a>
-            <a href="https://github.com" target="_blank" className="hover:text-blue-400">
-              GitHub
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-blue-400 flex flex-col items-center"
+            >
+              <GitHubIcon style={{ fontSize: 40 }} />
+              <span className="mt-2">GitHub</span>
             </a>
-            <a href="https://www.instagram.com/_._mamoun_._/profilecard/?igsh=MTB4d2J4cHI4cmQ1dw==" target="_blank" className="hover:text-blue-400">
-              Instagram
+            <a
+              href="https://www.instagram.com/_._mamoun_._/profilecard/?igsh=MTB4d2J4cHI4cmQ1dw=="
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-blue-400 flex flex-col items-center"
+            >
+              <InstagramIcon style={{ fontSize: 40 }} />
+              <span className="mt-2">Instagram</span>
             </a>
           </div>
         </div>
       </div>
 
       {/* Footer */}
-      <footer className="text-white p-4 text-center mt-auto bg-sky-600">
-        <p className="text-lg">&copy; 2024 Mamoune Benouna. Tous droits réservés.</p>
+      <footer className="text-white py-4 text-center bg-sky-600">
+        <p>&copy; 2024 Mamoune Benouna. All rights reserved.</p>
       </footer>
     </div>
   );
 }
+
+
+
+
 const sendEmail = async (e) => {
   e.preventDefault();
 
@@ -142,7 +166,7 @@ const sendEmail = async (e) => {
   };
 
   try {
-    const response = await fetch("https://ton-backend.onrender.com/send-email", {
+    const response = await fetch("https://portfolioo-2.onrender.com/send-mail", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
