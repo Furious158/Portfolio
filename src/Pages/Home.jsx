@@ -128,6 +128,37 @@ function App() {
       </a>
     </div>
 
+ {/* Projet Forum2 */}
+<div className="w-full md:w-80 bg-white p-6 rounded-lg shadow-lg text-center">
+  <h3 className="text-xl font-bold text-gray-800 mb-4">Plateforme d'échange entre étudiants</h3>
+  
+  {/* Conteneur de l'image avec effet de zoom */}
+  <a 
+    href="https://mediumturquoise-frog-337595.hostingersite.com/index.php" 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    className="block overflow-hidden rounded-lg"
+  >
+    <img 
+      src="/photoforum2.png" 
+      alt="StudentExchange" 
+      className="h-32 w-full object-cover transition-transform duration-300 transform hover:scale-105"
+    />
+  </a>
+  
+  <p className="text-gray-600 mt-4">Compétences utilisées : SQL, Php</p>
+  <a
+    href="https://github.com/Furious158/desc/tree/moune"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="block mt-4 text-blue-500 hover:underline"
+  >
+    Voir sur GitHub
+  </a>
+</div>
+
+  
+
     {/* Projet Forum */}
     <div className="w-full md:w-80 bg-white p-6 rounded-lg shadow-lg text-center">
       <h3 className="text-xl font-bold text-gray-800 mb-4">Projet Forum</h3>

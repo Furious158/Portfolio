@@ -99,7 +99,7 @@ function About() {
           {/* Image */}
           <div className="w-64 h-64 bg-white p-4 rounded-lg shadow-lg flex items-center justify-center">
             <img
-              src="image411.png"
+              src="screenshotcv.png"
               alt="CV"
               className="max-w-full max-h-full rounded-lg"
             />
