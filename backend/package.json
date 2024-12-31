@@ -24,7 +24,7 @@
     
   "preview": "vite preview",
 
-  "start": "node server.js"
+  "start": "node backend/server.js"
   
   },
   
