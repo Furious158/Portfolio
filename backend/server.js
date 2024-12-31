@@ -35,7 +35,7 @@ app.post("/send-mail", async (req, res) => {
       to: process.env.EMAIL, // Ton email pour recevoir le message
       replyTo: email, // L'email de l'utilisateur pour faciliter la réponse
       subject: `Message de ${name}`, // Sujet personnalisé
-      text: `Message de : ${name}\nEmail : ${email}\n\n${message}`, // Contenu du message
+      text: message, // Contenu du message
     };
 
     await transporter.sendMail(mailOptions);
