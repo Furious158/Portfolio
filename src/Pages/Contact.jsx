@@ -10,6 +10,29 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 function Contact() {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const sendEmail = async (email, message) => {
+    try {
+      const response = await fetch("https://portfolioo-2.onrender.com/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, message }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Erreur lors de l'envoi de l'email");
+      }
+
+      const data = await response.json();
+      console.log("Réponse du backend :", data);
+      alert("Message envoyé avec succès !");
+    } catch (error) {
+      console.error("Erreur :", error.message);
+      alert("Erreur lors de l'envoi du message.");
+    }
+  };
+
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
