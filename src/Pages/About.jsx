@@ -16,7 +16,6 @@ function About() {
       <nav>
   <div className="fixed top-0 left-0 w-full bg-sky-600 text-white p-4 flex justify-between items-center shadow-md z-50">
     <div className="text-3xl lg:text-4xl font-sherif whitespace-nowrap">
-      Mamoune Benouna
     </div>
     {/* Burger Menu Button */}
     <button
@@ -26,51 +25,70 @@ function About() {
     >
       ☰
     </button>
-    {/* Desktop Navigation */}
-    <ul className="hidden lg:flex space-x-6 text-lg lg:text-2xl">
-      <li className="hover:text-blue-400">
-        <Link to="/">Home</Link>
+     {/* Desktop Navigation */}
+        <nav className="hidden lg:flex space-x-6 text-lg">
+          <Link to="/" className="hover:text-blue-300 transition duration-300">
+            Home
+          </Link>
+          <Link to="/Contact" className="hover:text-blue-300 transition duration-300">
+            Contact
+          </Link>
+          <Link to="/About" className="hover:text-blue-300 transition duration-300">
+            About
+          </Link>
+        </nav>
+      </div>
+
+  {/* Menu Burger Mobile */}
+{menuOpen && (
+  <div
+    className="fixed top-0 right-0 bg-white text-black shadow-lg rounded-lg w-3/4 max-w-sm h-auto flex flex-col items-start p-6 z-50"
+    style={{ transition: "transform 0.3s ease-in-out" }}
+  >
+    {/* Bouton de Fermeture */}
+    <button
+      className="text-xl self-end mb-4 text-gray-700"
+      onClick={toggleMenu}
+      aria-label="Close navigation menu"
+    >
+      ✖
+    </button>
+
+    {/* Liens du Menu */}
+    <ul className="space-y-4">
+      <li>
+        <Link
+          to="/"
+          className="block text-lg font-semibold hover:text-blue-500"
+          onClick={toggleMenu}
+        >
+          Home
+        </Link>
       </li>
-      <li className="hover:text-blue-400">
-        <Link to="/Contact">Contact</Link>
+      <li>
+        <Link
+          to="/Contact"
+          className="block text-lg font-semibold hover:text-blue-500"
+          onClick={toggleMenu}
+        >
+          Contact
+        </Link>
       </li>
-      <li className="hover:text-blue-400">
-        <Link to="/About">About</Link>
+      <li>
+        <Link
+          to="/About"
+          className="block text-lg font-semibold hover:text-blue-500"
+          onClick={toggleMenu}
+        >
+          About
+        </Link>
       </li>
     </ul>
   </div>
-
-  {/* Mobile Menu */}
-  {menuOpen && (
-    <nav
-      className="lg:hidden fixed inset-0 bg-black bg-opacity-90 text-white flex flex-col items-center justify-center space-y-6 z-50"
-      style={{ zIndex: 50 }}
-    >
-      <Link
-        to="/"
-        className="text-xl hover:text-blue-300"
-        onClick={toggleMenu}
-      >
-        Home
-      </Link>
-      <Link
-        to="/Contact"
-        className="text-xl hover:text-blue-300"
-        onClick={toggleMenu}
-      >
-        Contact
-      </Link>
-      <Link
-        to="/About"
-        className="text-xl hover:text-blue-300"
-        onClick={toggleMenu}
-      >
-        About
-      </Link>
-    </nav>
-  )}
+  
+)
+}
 </nav>
-
 
       {/* Main Section */}
       <div className="flex flex-col items-center justify-center py-24 px-8">
