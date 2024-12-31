@@ -167,7 +167,7 @@ function Contact() {
               <span className="mt-2">LinkedIn</span>
             </a>
             <a
-              href="https://github.com"
+              href="https://github.com/Furious158"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white hover:text-blue-400 flex flex-col items-center"
