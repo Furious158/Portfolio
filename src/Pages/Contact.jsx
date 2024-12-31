@@ -12,7 +12,7 @@ function Contact() {
 
   const sendEmail = async (name, email, message) => {
     try {
-      const response = await fetch("https://portfolioo-unkx.onrender.com/send-email", {
+      const response = await fetch("https://portfolioo-unkx.onrender.com/send-mail", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
