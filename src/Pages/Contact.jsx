@@ -121,60 +121,63 @@ function Contact() {
 
         {/* Contact Form */}
         <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-3xl text-black">
-          <form className="space-y-6">
-            {/* Name */}
-            <div>
-              <label className="block text-lg font-semibold mb-2" htmlFor="name">
-                Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                className="w-full p-3 border border-gray-300 rounded"
-                placeholder="Your name"
-                required
-              />
-            </div>
-            {/* Email */}
-            <div>
-              <label className="block text-lg font-semibold mb-2" htmlFor="email">
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                className="w-full p-3 border border-gray-300 rounded"
-                placeholder="Your email"
-                required
-              />
-            </div>
-            {/* Message */}
-            <div>
-              <label
-                className="block text-lg font-semibold mb-2"
-                htmlFor="message"
-              >
-                Message
-              </label>
-              <textarea
-                id="message"
-                className="w-full p-3 border border-gray-300 rounded"
-                placeholder="Your message"
-                rows="5"
-                required
-              ></textarea>
-            </div>
-            {/* Submit Button */}
-            <div className="text-center">
-              <button
-                type="submit"
-                className="bg-gradient-to-r from-blue-500 to-sky-600 text-white py-3 px-6 rounded-full shadow-md transition-transform transform hover:scale-105"
-              >
-                Send Message
-              </button>
-            </div>
-          </form>
-        </div>
+        <form
+  className="space-y-6"
+  onSubmit={(e) => {
+    e.preventDefault(); // Empêche le rechargement de la page
+    const email = e.target.email.value; // Récupère l'email
+    const message = e.target.message.value; // Récupère le message
+    sendEmail(email, message); // Appelle la fonction d'envoi
+  }}
+>
+  <div>
+    <label className="block text-lg font-semibold mb-2" htmlFor="name">
+      Name
+    </label>
+    <input
+      type="text"
+      id="name"
+      className="w-full p-3 border border-gray-300 rounded"
+      placeholder="Your name"
+      required
+    />
+  </div>
+  <div>
+    <label className="block text-lg font-semibold mb-2" htmlFor="email">
+      Email
+    </label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      className="w-full p-3 border border-gray-300 rounded"
+      placeholder="Your email"
+      required
+    />
+  </div>
+  <div>
+    <label className="block text-lg font-semibold mb-2" htmlFor="message">
+      Message
+    </label>
+    <textarea
+      id="message"
+      name="message"
+      className="w-full p-3 border border-gray-300 rounded"
+      placeholder="Your message"
+      rows="5"
+      required
+    ></textarea>
+  </div>
+  <div className="text-center">
+    <button
+      type="submit"
+      className="bg-gradient-to-r from-blue-500 to-sky-600 text-white py-3 px-6 rounded-full shadow-md transition-transform transform hover:scale-105"
+    >
+      Send Message
+    </button>
+  </div>
+</form>
+
 
         {/* Social Links */}
         <div className="mt-16 text-center">
@@ -216,7 +219,8 @@ function Contact() {
         <p>&copy; 2024 Mamoune Benouna. All rights reserved.</p>
       </footer>
     </div>
-  );
-}
+  ;
+  </div>
+)}
 
 export default Contact;
