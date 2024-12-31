@@ -68,6 +68,45 @@ function Home() {
         </div>
       </header>
 
+         {/* Menu Burger Mobile */}
+         {menuOpen && (
+          <div
+            className="fixed top-0 right-0 bg-white text-black shadow-lg rounded-lg w-3/4 max-w-sm h-auto flex flex-col items-start p-6 z-50"
+            style={{ transition: "transform 0.3s ease-in-out" }}
+          >
+            {/* Bouton de Fermeture */}
+            <button
+              className="text-0xl self-end mb-4 text-gray-700"
+              onClick={toggleMenu}
+              aria-label="Close navigation menu"
+            >
+              ☰
+            </button>
+
+            {/* Liens du Menu */}
+            <ul className="space-y-4">
+              <li>
+                <Link
+                  to="/Contact"
+                  className="block text-lg font-semibold hover:text-blue-500"
+                  onClick={toggleMenu}
+                >
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/About"
+                  className="block text-lg font-semibold hover:text-blue-500"
+                  onClick={toggleMenu}
+                >
+                  About
+                </Link>
+              </li>
+            </ul>
+          </div>
+        )}
+
       {/* Hero Section with Vanta.js Background */}
       <div className="relative h-screen flex flex-col items-center justify-center px-8 text-center">
         <div className="w-40 h-40 rounded-full overflow-hidden border-4 border-white mb-8">
