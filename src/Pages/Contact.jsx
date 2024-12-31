@@ -10,14 +10,14 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 function Contact() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const sendEmail = async (email, message) => {
+  const sendEmail = async (name, email, message) => {
     try {
-      const response = await fetch("https://portfolioo-unkx.onrender.com", {
+      const response = await fetch("https://portfolioo-unkx.onrender.com/send-email", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, message }),
+        body: JSON.stringify({name, email, message }),
       });
 
       if (!response.ok) {
@@ -125,9 +125,10 @@ function Contact() {
   className="space-y-6"
   onSubmit={(e) => {
     e.preventDefault(); // Empêche le rechargement de la page
+    const name = e.target.name.value; // Récupère le nom
     const email = e.target.email.value; // Récupère l'email
     const message = e.target.message.value; // Récupère le message
-    sendEmail(email, message); // Appelle la fonction d'envoi
+    sendEmail(name, email, message); // Appelle la fonction d'envoi
   }}
 >
   <div>

@@ -13,7 +13,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Route pour envoyer des emails
-app.post("/send-email", async (req, res) => {
+app.post("/send-mail", async (req, res) => {
   const { name, email, message } = req.body;
 
   if (!name || !email || !message) {
