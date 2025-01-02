@@ -171,7 +171,7 @@ function Home() {
               <img
                 src="/photoforum2.png"
                 alt="StudentExchange"
-                className="h-40 mx-auto mb-4 object-cover rounded-lg"
+                className="h-40 mx-auto mb-4 object-cover rounded-lg hover:underline transition-transform duration-300 transform hover:scale-105"
               />
             </a>
             <p className="text-gray-600 mb-4">Compétences utilisées : SQL, Php</p>
