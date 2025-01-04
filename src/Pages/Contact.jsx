@@ -147,6 +147,8 @@ function Contact() {
         {/* Contact Form */}
         <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-3xl text-black">
         <form
+
+
   className="space-y-6"
   onSubmit={(e) => {
     e.preventDefault(); // Empêche le rechargement de la page
@@ -155,6 +157,8 @@ function Contact() {
     const message = e.target.message.value; // Récupère le message
     sendEmail(name, email, message); // Appelle la fonction d'envoi
   }}
+
+  
 >
   <div>
     <label className="block text-lg font-semibold mb-2" htmlFor="name">
