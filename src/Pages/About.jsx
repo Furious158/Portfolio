@@ -128,8 +128,8 @@ function About() {
             </div>
             {/* Download Button */}
             <a
-              href="/cv.mamoune.pdf"
-              download="Cv_Mamoune"
+              href="/CV_Mamoune.pdf"
+              download="CV_Mamoune.pdf"
               className="mt-6 flex items-center justify-center bg-green-500 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-green-600 transition duration-300"
             >
               <DownloadIcon className="mr-2" />
